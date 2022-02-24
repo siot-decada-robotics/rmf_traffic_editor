@@ -3,6 +3,7 @@
 <qresource>
   <file>icons/battery.svg</file>
   <file>icons/clean.svg</file>
+  <file>icons/bookshelf.svg</file>
   <file>icons/constraint.svg</file>
   <file>icons/door.svg</file>
   <file>icons/dropoff.svg</file>

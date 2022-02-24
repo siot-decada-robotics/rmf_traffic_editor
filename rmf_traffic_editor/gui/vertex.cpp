@@ -32,6 +32,7 @@ const vector<pair<string, Param::Type>> Vertex::allowed_params
   { "is_charger", Param::Type::BOOL},
   { "dock_name", Param::Type::STRING},
   { "is_cleaning_zone", Param::Type::BOOL},
+  { "is_bookshelf_zone", Param::Type::BOOL},
   { "dropoff_ingestor", Param::Type::STRING },
   { "pickup_dispenser", Param::Type::STRING },
   { "spawn_robot_type", Param::Type::STRING },
@@ -253,6 +254,8 @@ void Vertex::draw(
     icon_name = ":icons/dropoff.svg";
   else if (is_cleaning_zone())
     icon_name = ":icons/clean.svg";
+  else if (is_bookshelf_zone())
+    icon_name = ":icons/bookshelf.svg";
   else if (!lift_cabin().empty())
     icon_name = ":icons/lift.svg";
 
@@ -339,6 +342,15 @@ bool Vertex::is_charger() const
 bool Vertex::is_cleaning_zone() const
 {
   const auto it = params.find("is_cleaning_zone");
+  if (it == params.end())
+    return false;
+
+  return it->second.value_bool;
+}
+
+bool Vertex::is_bookshelf_zone() const
+{
+  const auto it = params.find("is_bookshelf_zone");
   if (it == params.end())
     return false;
 

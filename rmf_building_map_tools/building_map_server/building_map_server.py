@@ -214,6 +214,7 @@ class BuildingMapServer(Node):
 
                 for bool_param in ["is_charger",
                                    "is_cleaning_zone",
+                                   "is_bookshelf_zone",
                                    "is_holding_point",
                                    "is_parking_spot"]:
                     if (bool_param in v[2]):
